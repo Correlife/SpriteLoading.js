@@ -1,8 +1,8 @@
 # SpriteLoading.js
-Display loading in/out animations using a sprite image.
+Display and control in/out animations using a sprite image.
 
 ## Installation
-After including jQuery, include SpriteLoading.js or SpriteLoading.min.js in your HTML:
+After including jQuery, include SpriteLoading.js in your HTML:
 ```html
 <script src="https://raw.githubusercontent.com/Correlife/SpriteLoading.js/master/SpriteLoading.min.js"></script>
 ```
@@ -25,7 +25,9 @@ Use SpriteLoading when:
 <li>You need to control the timing if in/loop/out animations</li>
 </ul>
 SpriteLoading starts with an animation (in), then loops another animation (loop), and when instructed to finish it ends with the last animation (out).
+
 Each animation will complete before moving to the next one for a smooth transition.
+
 The animation will spawn in the center of the container (both horizontally and vertically).
 
 ## Options
@@ -61,7 +63,9 @@ var loading = new SpriteLoading($('#your_container'), {
 
 ## Creating custom animations
 Create a single vertical sprite (where each frame of the animation is below the previous one) and use the sprite_url to point to it. PNGs work best because of the alpha channel. The frames should be in the in-out-loop order.
+
 There are many sprite generators to convert individual files to a single sprite, for example this tool: http://www.cssportal.com/css-sprite-generator/
+
 Finally, set the width/height/frames options according to your animation.
 
 ## Credits
