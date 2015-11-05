@@ -18,8 +18,8 @@ var SpriteLoading = function (container, custom_options) {
             out_end: 45
         },
         theme: 'light',
-        sprite_url: 'https://correlife.org/img/loading.png',
-        sprite_url_dark: 'https://correlife.org/img/loading-dark.png'
+        sprite_url: 'https://raw.githubusercontent.com/Correlife/SpriteLoading.js/master/loading.png',
+        sprite_url_dark: 'https://raw.githubusercontent.com/Correlife/SpriteLoading.js/master/loading-dark.png'
     }, custom_options);
     var frame = options.frames.start;
     var that = this;
