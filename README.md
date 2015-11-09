@@ -43,6 +43,7 @@ var loading = new SpriteLoading($('#your_container'), {
         loop_end: 35,
         out_end: 45
     },
+    backdrop: false,
     theme: 'light',
     sprite_url: 'https://correlife.org/img/loading.png',
     sprite_url_dark: 'https://correlife.org/img/loading-dark.png'
@@ -57,6 +58,7 @@ var loading = new SpriteLoading($('#your_container'), {
 | frames.loop_start | The number of the first frame of the loop  |
 | frames.loop_end   | The number of the last frame of the loop  |
 | frames.out_end    | The number of the last frame of the animation (out) |
+| backdrop          | Display a partially transparent screen under the animation |
 | theme             | Options: light/dark Default: light  |
 | sprite_url        | The url to the light themed sprite  |
 | sprite_url_dark   | The url to the dark themed sprite |
