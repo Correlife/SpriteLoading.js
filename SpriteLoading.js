@@ -17,21 +17,36 @@ var SpriteLoading = function (container, custom_options) {
             loop_end: 35,
             out_end: 45
         },
+        backdrop: false,
         theme: 'light',
-        sprite_url: 'https://raw.githubusercontent.com/Correlife/SpriteLoading.js/master/loading.png',
-        sprite_url_dark: 'https://raw.githubusercontent.com/Correlife/SpriteLoading.js/master/loading-dark.png'
+        sprite_url: '/img/loading.png',
+        sprite_url_dark: '/img/loading-dark.png'
     }, custom_options);
     var frame = options.frames.start;
     var that = this;
     this.set_finish = false;
     this.finish_callback = false;
 
+    if (options.backdrop) {
+        var bd = $('<div class="sprite-loading-backdrop"></div>').appendTo(container)
+            .css({
+                opacity:0.5,
+                backgroundColor:(options.theme === 'dark' ? '#fff' : '#000'),
+                width:'100%',
+                height:'100%',
+                position:'absolute',
+                'top':0})
+            .hide().fadeIn(200);
+    }
     var obj = $('<div class="sprite-loading"></div>').appendTo(container);
+    if (obj.parent().css('position') === 'static') {
+        obj.parent().css({position: 'relative'});
+    }
     obj.css({
         'background': 'url(\'' + (options.theme === 'dark' ? options.sprite_url_dark : options.sprite_url) + '\')',
         'width': options.width + 'px',
         'height': options.height + 'px',
-        'position': 'relative',
+        'position': 'absolute',
         'background-position-x': 0,
         'background-position-y': '-' + options.height + 'px',
         'top': '50%',
@@ -48,6 +63,9 @@ var SpriteLoading = function (container, custom_options) {
             if (that.set_finish === true) {
                 if (frame > options.frames.out_end) {
                     clearInterval(intervalID);
+                    if (options.backdrop) {
+                        bd.fadeOut(200, function(){$(this).remove();});
+                    }
                     obj.remove();
                     that.finish_callback();
                 }
